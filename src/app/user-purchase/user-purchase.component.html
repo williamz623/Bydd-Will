@@ -1,0 +1,40 @@
+<div fxLayout="row" class="byd-page-container">
+    <div fxFlex fxLayout="column">
+        <div style="border-bottom: 1px solid #e0e0e0; text-align: center;"><span>My Purchase</span></div>
+
+        <div fxLayout="row">
+            <div fxFlex="50" class="byd-sale-summary-div" fxLayout="column">
+                <div fxFlex style="line-height: 100px;"><span class="byd-sale-summary-total">{{coinTotalPurchaseCount}}</span></div>
+                <div style="height:20px"><span>Total Items</span></div>
+            </div>
+            <div fxFlex class="byd-sale-summary-div" fxLayout="column">
+                <div fxFlex style="line-height: 100px;"><span class="byd-sale-summary-total">{{coinTotalPurchaseAmount | currency }}</span></div>
+                <div style="height:20px"><span style="height:20px">Total Purchase Amount</span></div>
+            </div>
+        </div>
+
+        <div fxFlex>
+            <kendo-grid [kendoGridBinding]="userPurchaseCoins" [pageSize]="50" [pageable]="true" [sortable]="true" filterable="menu"
+                [height]="550" #grid>
+                <kendo-grid-column field="coinId" title="Id" [width]="50" [filterable]="false"></kendo-grid-column>
+                <kendo-grid-column field="coinName" title="Name" [width]="180">
+                    <ng-template kendoGridCellTemplate let-dataItem>
+                      <span (click)="openCoinDetail(dataItem)" style="text-decoration: underline; color:#1a405d; cursor: pointer;">{{dataItem.coinName}}</span><br>
+                    </ng-template>
+                </kendo-grid-column>
+                <kendo-grid-column field="purchasePrice" title="Price" filter="numeric" format="{0:c}" [width]="100"></kendo-grid-column>
+                <kendo-grid-column field="purchaseDate" title="Date" filter="date" format="{0:d}" [width]="120"></kendo-grid-column>
+                <kendo-grid-column field="shippingFee" title="Shipping Fee" filter="numeric" format="{0:c}" [width]="130"></kendo-grid-column>
+                <kendo-grid-column field="serviceFee" title="Service Fee" filter="numeric" format="{0:c}" [width]="120"></kendo-grid-column>
+                <kendo-grid-column field="tax" title="Tax" filter="numeric" format="{0:c}" [width]="90"></kendo-grid-column>
+                <kendo-grid-column field="total" title="Total" filter="numeric" format="{0:c}" [width]="100"></kendo-grid-column>
+                <kendo-grid-column title="Shipping Infor" [width]="130">
+                    <ng-template kendoGridCellTemplate let-dataItem>
+                      <span>{{dataItem.shippingCompany}}</span><br>
+                      <span>{{dataItem.trackingNumber}}</span>
+                    </ng-template>
+                </kendo-grid-column>
+            </kendo-grid>
+        </div>
+    </div>
+</div>

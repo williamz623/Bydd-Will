@@ -1,0 +1,71 @@
+.byd-coin-field-div {
+    margin-top:0px;
+}
+
+.font-size-12 { font-size: 12px;}
+
+#divPaymentAmount{
+    height: 50px;
+    line-height: 50px;
+    text-align: right;
+    padding-right: 10px;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    padding-left: 5px;    
+    font-size: 16px;
+    background-color: #f0f0f0;
+}
+
+#card-number-element {
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    height: 22px;
+    padding-top: 5px;
+    padding-left: 5px;
+    border-radius: 5px;
+}
+
+#card-expiry-element {
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    height: 22px;
+    padding-top: 5px;
+    padding-left: 5px;
+    border-radius: 5px;
+}
+
+#card-cvc-element {
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    height: 22px;
+    padding-top: 5px;
+    padding-left: 5px;
+    border-radius: 5px;
+}
+
+.byd-function-button {
+    float: right;width: 100%; height: 50px; border-radius: 5px; border:0; 
+    background-color: #1a405d; color: white; cursor: pointer;
+    font-size: 20px; font-style: italic; font-weight: bold;
+}
+
+.byd-span-succeed {
+    width: 100%; height: 50px; font-size: 30px; line-height: 50px;
+    border-radius: 5px; border:0; cursor: pointer; display: block;
+    color: white; background-color:mediumseagreen;
+}
+
+.byd-card-name {
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    height: 22px;
+    width: 98%;
+    padding-left: 5px;
+    border-radius: 5px;
+}
+
+.byd-cc-card {
+    height: 25px;
+    float: right;
+    top: -27px;
+    position: relative;
+    right: 2px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}

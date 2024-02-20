@@ -1,0 +1,92 @@
+<div fxLayout="row" class="byd-page-container" style="font-size:14px;">
+    <div fxFlex></div>
+    <div fxFlex.gt-sm="60" fxFlex.lt-md="100" fxLayout="column">
+
+        <div>
+            <span style="font-size: 22px; border-bottom: 1px solid #d0d0d0;">Help Articles</span>
+        </div>
+
+        <!-- How Bydd Works -->
+        <div class="byd-help-function" fxLayout="column" (click)="gotoRouter('HowByddWorks')">
+            <span style="font-size:20px">How Bydd Works</span>
+            <div style="text-align: center;margin-top: 10px;"><img src="assets/img/auction1.png"
+                    style="width:50px; height:50px;opacity: .4;"></div>
+        </div>
+
+        <!-- Transactional Policies -->
+        <div class="byd-help-function" fxLayout="column" (click)="gotoRouter('TransactionalPolicies')">
+            <span style="font-size:20px">Transactional Policies</span>
+            <div style="text-align: center;margin-top: 10px;"><img src="assets/img/arrow.png"
+                    style="width:50px; height:50px;opacity: .4;"></div>
+        </div>
+
+        <!-- Selling Policies and Fees -->
+        <div class="byd-help-function" fxLayout="column" (click)="gotoRouter('SellingPolicies')">
+            <span style="font-size:20px">Selling Policies and Fees</span>
+            <div style="text-align: center;margin-top: 10px;"><img src="assets/img/invoice.png"
+                    style="width:50px; height:50px;opacity: .4;"></div>
+        </div>
+
+        <!-- Question and Answer -->
+        <div class="byd-help-function" fxLayout="column" (click)="gotoRouter('QuestionAnswer')">
+            <span style="font-size:20px">Frequently Asked Questions</span>
+            <div style="text-align: center;margin-top: 10px;"><img src="assets/img/qa.png"
+                    style="width:50px; height:50px;opacity: .4;"></div>
+        </div>
+
+        <!-- Contact Us -->
+        <div fxLayout="column" style="margin-top:30px; text-align: center;">
+            <div style="border-bottom: 1px solid #e0e0e0; padding-bottom: 10px;">
+                <span style="font-size:22px">Contact Us</span>
+            </div>
+            <div fxLayout="row">
+                <div fxFlex></div>
+
+                <div fxFlex.gt-sm="60" fxFlex.lt-md="100" fxLayout="column" *ngIf="currentPageNumber==1"
+                    class="byd-list-all-div" style="padding-top:20px">
+                    <form #formContactUs>
+                        <div fxLayout="row">
+                            <div fxFlex="50" class="left-align-label">
+                                <kendo-label class="k-form" text="Name*" [for]="inputFirst"></kendo-label>
+                                <kendo-textbox #inputFirst required="true" placeholder="First"
+                                    [(ngModel)]="contactFirstName" name="inputFirst"></kendo-textbox>
+                            </div>
+                            <div fxFlex="50" style="margin-left:10px;">
+                                <kendo-label class="k-form" [for]="inputLast"></kendo-label>
+                                <kendo-textbox #inputLast required="true" placeholder="Last"
+                                    [(ngModel)]="contactLastName" name="inputLast"></kendo-textbox>
+                            </div>
+                        </div>
+                        <div class="byd-coin-field-div left-align-label" style="margin-top: 10px;">
+                            <kendo-label class="k-form" text="Email*" [for]="inputEmail"></kendo-label>
+                            <kendo-textbox #inputEmail [(ngModel)]="contactEmail" required="true"
+                                name="inputEmail"></kendo-textbox>
+                        </div>
+                        <div class="byd-coin-field-div left-align-label" style="margin-top: 10px;">
+                            <kendo-label class="k-form" text="Message Subject*" [for]="inputSubject"></kendo-label>
+                            <kendo-textbox #inputSubject [(ngModel)]="contactSubject" required="true"
+                                name="inputSubject"></kendo-textbox>
+                        </div>
+                        <div class="byd-coin-field-div left-align-label" style="padding-top:10px">
+                            <kendo-label text="Message*">
+                                <kendo-textarea [(ngModel)]="contactContent" placeholder="" [rows]="5" required="true"
+                                    resizable="vertical" name="inputMessage"></kendo-textarea>
+                            </kendo-label>
+                        </div>
+                        <div class="byd-coin-field-div" style="text-align: center;margin-top: 20px;">
+                            <button kendoButton [disabled]="btnSubmitDisabled || 
+                            contactFirstName.trim()=='' || contactLastName.trim()=='' || 
+                            contactEmail.trim()=='' || contactSubject.trim()=='' || contactContent.trim()==''"
+                                [ngClass]="{'disabled-btn': btnSubmitDisabled  || contactFirstName.trim()=='' || contactLastName.trim()=='' || 
+                                contactEmail.trim()=='' || contactSubject.trim()=='' || contactContent.trim()==''}"
+                                (click)="submit()" class="btnClose byd-function-button">{{btnSubmitTitle}}</button>
+                        </div>
+                    </form>
+                </div>
+                <div fxFlex></div>
+            </div>
+        </div>
+
+    </div>
+    <div fxFlex></div>
+</div>

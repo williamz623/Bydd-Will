@@ -1,0 +1,62 @@
+.byd-sale-summary-div {
+    background-color: #e0e0e0; 
+    color:black; 
+    text-align: center;
+    margin: 5px;
+    border-radius: 5px;
+    padding: 5px;
+    height: 150px;
+    cursor: pointer;
+}
+
+.byd-sale-summary-total {
+    color: #1a405d; 
+    font-weight: 500;
+    font-size: 58px;
+}
+
+.byd-sale-summary-list {
+    margin: 5px;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.byd-coin-field-div {
+    margin-top:10px;
+    overflow-y: auto;
+}
+
+.byd-function-button {
+    width: 200px; height: 30px; border-radius: 5px; border:0; background-color: #1a405d; color: white; cursor: pointer;
+}
+
+
+.byd-coin-edit-icon {
+    position: relative; 
+    border-radius: 5px; 
+    background-color: #1a405d;
+    color:white;
+    cursor: pointer;
+}
+
+
+@media only screen and (max-width: 600px) {
+    .byd-lt-md-hide { display:none !important; }
+    .byd-lt-md-show { display:inline; }
+    .byd-page-container { height:100%; padding: 1px; } 
+    .byd-coin-preview-image { max-height: 50px; }
+}
+    
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+    .byd-lt-md-hide { display:inline; }
+    .byd-lt-md-show { display:none !important; }
+    .byd-page-container { height:100%; padding: 30px; } 
+    .byd-coin-preview-image { max-height: 30px; }
+}
+  
+@media only screen and (min-width: 1025px) {
+    .byd-lt-md-hide { display:inline; }
+    .byd-lt-md-show { display:none !important; }
+    .byd-page-container { height:100%; padding: 30px; } 
+    .byd-coin-preview-image { max-height: 30px; }
+}

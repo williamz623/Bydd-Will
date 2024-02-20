@@ -1,0 +1,63 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,500&display=swap" rel="stylesheet">
+<div style="width:100%; height:100%; font-family: 'Source Serif 4', serif;" fxLayout="row">
+  <div fxFlex></div>
+  <div fxFlex.gt-md="95" fxFlex.lt-md="100" fxLayout="column">
+
+    <app-header [currentUser]="currentUser" [userSignedIn]="userSignedIn"></app-header>
+
+
+
+
+    <div fxFlex>
+      <router-outlet></router-outlet>
+    </div>
+
+    <!-- navagator -->
+    <div fxFlex fxLayout="row" role="main" style="border-top:1px solid #f0f0f0; padding: 50px 0;">
+      <div fxFlex fxLayout.gt-sm="row" fxLayout.lt-md="column">
+        <div fxFlex.gt-sm="25" class="byd-navagator">
+          <span><b>Bydd</b></span><br>
+          <div class="byd-navagator-span" (click)="gotoRouter('AboutUs')">About Bydd</div>
+          <div class="byd-navagator-span" (click)="gotoRouter('HelpContact')">Help and Contact</div>
+          <div class="byd-navagator-span">Bydd Early Adopters</div>
+        </div>
+        <div fxFlex.gt-sm="25" class="byd-navagator">
+          <span><b>Buying and Selling on Bydd</b></span><br>
+          <div class="byd-navagator-span" (click)="gotoRouter('HowByddWorks')">How to Use Bydd</div>
+          <div class="byd-navagator-span" (click)="gotoRouter('SellingPolicies')">Selling policies</div>
+          <div class="byd-navagator-span" (click)="gotoRouter('TransactionalPolicies')">Transactional policies</div>
+        </div>
+        <div fxFlex.gt-sm="25" class="byd-navagator byd-text-align" fxLayout="row">
+          <div fxFlex></div>
+          <div>
+            <span><b>My Bydd</b></span><br>
+            <div class="byd-navagator-span" (click)="gotoRouter('Login')">Sign-in</div>
+            <div class="byd-navagator-span" (click)="register()">Register</div>
+          </div>
+          <div fxFlex></div>
+        </div>
+        <div fxFlex.gt-sm="25" class="byd-navagator">
+          <div style="margin-bottom: 20px; text-align: center;"><span><b>Stay Connected with Bydd</b></span></div>
+          <div fxLayout="row">
+            <div fxFlex></div>
+            <img src="assets/img/insgrame.png" class="byd-contact-icon" />
+            <img src="assets/img/facebook1.png" class="byd-contact-icon" />
+            <img src="assets/img/twitter1.png" class="byd-contact-icon" />
+            <div fxFlex></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align: center; font-size: 12px;">
+      <span>Copyright © 2023 BYD Inc. All Rights Reserved. <span (click)="userAgreement()"
+          style="text-decoration: underline; cursor:pointer">User Agreement</span>, Privacy, Payments Terms of Use,
+        Cookies and
+        AdChoice</span>
+    </div>
+
+  </div>
+  <div fxFlex></div>
+</div>

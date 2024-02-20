@@ -1,0 +1,104 @@
+<div fxLayout="column" class="byd-page-container">
+    <!-- <div style="border-bottom: 1px solid #e0e0e0; text-align: center; font-size:32px; margin-top: 10px; height:30px"><span>My Cart</span></div> -->
+    <div style="border-bottom: 1px solid #e0e0e0; text-align: left;"><span><b>My Cart</b></span></div>
+    <div fxFlex fxLayout="row" class="byd-coin-field-div">
+        <div fxFlex fxLayout="column">
+
+            <div id="divSpin" style="text-align: center;"><img src="assets/img/Spin-1s-200px.gif" class="byd-spin">
+            </div>
+
+            <div *ngIf="myCoinOrders && myCoinOrders.length==0" style="text-align: center;padding-top: 20px; font-size: 18px;">
+                Your shopping cart is empty.
+            </div>
+
+            <div *ngIf="myCoinOrders && myCoinOrders.length>0" id="divOrder" fxFlex fxLayout.gt-sm="row" fxLayout.lt-md="column">
+                <div fxFlex.gt-sm="75" style="margin:10px">
+                    <ng-container *ngFor="let coin of myCoinOrders">
+                        <div fxLayout="row" class="byd-order-item">
+                            <div fxFlex fxLayout.gt-sm="row" fxLayout.lt-md="column">
+                                <div fxFlex.gt-sm="40" fxLayout="column" (click)="openCoinDetail(coin)" style="text-align: center;">
+                                    <div fxFlex><img [src]="coin.imageUrls[0]" class="byd-coin-image"></div>
+                                </div>
+                                <!-- <div fxLayout.gt-sm="column" fxLayout.lt-md="row">
+                                    <div fxFlex></div>
+                                    <div class="byd-padding-3"><img [src]="coin.imageUrls[0]" class="byd-coin-preview-image"></div>
+                                    <div class="byd-padding-3"><img [src]="coin.imageUrls[1]" class="byd-coin-preview-image"></div>
+                                    <div class="byd-padding-3"><img [src]="coin.imageUrls[2]" class="byd-coin-preview-image"></div>
+                                    <div class="byd-padding-3"><img [src]="coin.imageUrls[3]" class="byd-coin-preview-image"></div>
+                                    <div class="byd-padding-3"><img [src]="coin.imageUrls[4]" class="byd-coin-preview-image"></div>
+                                    <div class="byd-padding-3"><img [src]="coin.imageUrls[5]" class="byd-coin-preview-image"></div>
+                                    <div fxFlex></div>
+                                </div> -->
+                                <div fxFlex fxLayout="column" style="margin-left: 20px">
+                                    <div class="byd-div-heigh25">
+                                        <span title="{{coin.name}}">
+                                            <b>{{coin.name.length>40? coin.name.substr(0,40)+'...':coin.name}}</b>
+                                        </span>
+                                    </div>
+                                    <div fxLayout="row" class="byd-div-heigh25">
+                                        <div fxFlex>
+                                            <span>Purchase Date:</span>
+                                            <span><b>{{coin.coinOrder.purchaseDate | dateFormat}}</b></span>
+                                        </div>
+                                    </div>
+                                    <div fxLayout="row" class="byd-div-heigh25">
+                                        <div fxFlex>
+                                            <span>Purchase Price:</span>
+                                            <span><b>{{coin.coinOrder.purchasePrice | currency}}</b></span></div>
+                                    </div>
+                                    <div fxLayout="row" class="byd-div-heigh25">
+                                        <div fxFlex>
+                                            <span>Shipping Price:</span>
+                                            <span><b>{{coin.coinOrder.shippingFee | currency}}</b></span>
+                                        </div>
+                                    </div>
+                                    <div fxLayout="row" class="byd-div-heigh25">
+                                        <div fxFlex>
+                                            <span>Subtotal:</span>
+                                            <span><b>{{coin.coinOrder.total | currency}}</b></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="divCoinInOrder" fxLayout="column" style="text-align: center;">
+                                    <!-- <mat-checkbox checked="true" (click)="selectNeedCheckOutCoin($event, coin)" class="example-margin"></mat-checkbox> -->
+                                    <div>
+                                        <span *ngIf="coin.coinOrder.needCheckOut" (click)="selectNeedCheckOutCoin($event, coin)" class="material-icons" style="color:#1a405d; font-size: 32px; cursor:pointer">check_box</span>
+                                        <span *ngIf="!coin.coinOrder.needCheckOut" (click)="selectNeedCheckOutCoin($event, coin)" class="material-icons" style="color:#1a405d; font-size: 32px; cursor:pointer">check_box_outline_blank</span>
+                                    </div>                                    
+                                    <div fxFlex></div>
+                                    <div><span class="material-icons byd-coin-edit-icon" (click)="removeCoin(coin)" title="Remove Coin from order list">delete</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-container>
+                </div>
+                <div fxFlex *ngIf="myCoinOrders && myCoinOrders.length>0" style="margin:10px">
+                    <div style="background-color: whitesmoke; padding:5px">
+                        <div class="byd-div-heigh25"><span><b>Summary</b></span></div>
+                        <div fxLayout="row" class="byd-div-heigh25">
+                            <div fxFlex="50"><span>Subtotal</span></div>
+                            <div fxFlex="50" style="text-align: right;">{{this.subtotal | currency}}</div>
+                        </div>
+                        <div fxLayout="row" class="byd-div-heigh25">
+                            <div fxFlex="50"><span>Tax</span></div>
+                            <div fxFlex="50" style="text-align: right;">{{this.tax | currency}}</div>
+                        </div>
+                        <div fxLayout="row" class="byd-div-heigh25">
+                            <div fxFlex="50"><span>Shipping fee</span></div>
+                            <div fxFlex="50" style="text-align: right;">{{this.shippingFee | currency}}</div>
+                        </div>
+                        <div fxLayout="row" class="byd-div-heigh25">
+                            <div fxFlex="50"><span><b>Total</b></span></div>
+                            <div fxFlex="50" style="text-align: right; font-size: 18px;"><b>{{this.total | currency}}</b></div>
+                        </div>
+                        <div fxLayout="row" class="byd-div-heigh25" style="margin-top: 20px;">
+                            <button class="byd-function-button" (click)="checkOut()" [disabled]="total==0" kendoButton
+                                style="background-color:mediumseagreen;">Check Out</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

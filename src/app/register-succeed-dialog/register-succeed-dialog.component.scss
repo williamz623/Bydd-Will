@@ -1,0 +1,26 @@
+.byd-page-container {
+    height:100%;
+    padding: 20px;
+}
+
+.byd-login-margin {
+    margin-top: 10px;
+}
+
+.byd-button {
+    width:200px;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px;
+    color:white;
+    background-color: #1a405d;
+}
+
+.byd-signin-title {
+    text-align: center; 
+    border-bottom: 1px solid #e0e0e0;
+    font-size: 20px; 
+    padding-bottom: 10px;
+}
+
+.disabled-btn { opacity: 0.5; cursor: not-allowed !important; }

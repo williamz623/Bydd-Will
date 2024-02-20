@@ -1,0 +1,144 @@
+<div fxLayout="column" class="byd-page-container">
+  <div style="border-bottom: 1px solid #e0e0e0; text-align: left;"><span><b>My notifications</b></span></div>
+
+  <div fxFlex class="byd-coin-field-div" style="overflow-y: auto;">
+
+    <div id="divSpin" style="text-align: center;"><img src="assets/img/Spin-1s-200px.gif" class="byd-spin"></div>
+
+    <ng-container *ngFor="let nt of userNotifications">
+
+      <div fxLayout="row" *ngIf="(nt.notificationType=='offer')" style="border: 1px solid #e0e0e0; margin-bottom: 5px;">
+        <div fxFlex fxLayout.gt-sm="row" fxLayout.lt-md="column">
+          <div style="text-align: center;padding: 10px;" fxLayout="column">
+            <div fxFlex></div>
+            <img src="assets/img/person.png" style="width:100px; height:100px;">
+            <div fxFlex></div>
+          </div>
+          <div fxFlex fxLayout="column" style="margin-left: 10px; margin-right: 10px;">
+            <div fxFlex></div>
+            <div class="byd-div-heigh25">
+              <span>
+                <b>{{nt.userName}}</b> had made an offer on your item (
+                <span class="byd-font12-italic">{{nt.notificationDate | dateFormat}}</span>)
+              </span>
+            </div>
+            <div class="byd-div-heigh25"><span>{{nt.name}}</span></div>
+            <div fxLayout="row" class="byd-div-heigh25">
+              <div><span>Start Price: </span><span>{{nt.startPrice | currency}}</span></div>
+              <!-- <div style="margin-left:20px"><span>Bottom Price: </span><span><b>{{nt.lowestPrice | currency}}</b></span></div> -->
+              <div style="margin-left:20px"><span>Current Price: </span><span>{{nt.currentPrice | currency}}</span>
+              </div>
+              <div style="margin-left:20px"><span><b>Offer Price:</b></span>&nbsp;<span><b>{{nt.notificationPrice |
+                    currency}}</b></span></div>
+            </div>
+            <div class="byd-div-heigh25" fxLayout="row" style="padding-bottom: 20px;">
+              <div fxFlex.gt-sm="75" fxFlex.lt-md="100" fxLayout="row">
+                <div fxFlex="50" style="padding-right: 20px;">
+                  <button class="byd-function-button" [disabled]="nt.btnRejectOfferDisabled"
+                    [ngClass]="{'disabled-btn': nt.btnRejectOfferDisabled}"
+                    (click)="rejectOffer(nt.userId, nt.coinId, nt.name, nt)">
+                    {{nt.btnRejectOfferTitle}}</button>
+                </div>
+                <div fxFlex="50">
+                  <button class="byd-function-button" [disabled]="nt.btnAcceptOfferDisabled"
+                    [ngClass]="{'disabled-btn': nt.btnAcceptOfferDisabled}"
+                    (click)="acceptOffer(nt.userId, nt.coinId, nt.name, nt)">
+                    {{nt.btnAcceptOfferTitle}}</button>
+                </div>
+              </div>
+              <div fxFlex></div>
+            </div>
+            <div fxFlex></div>
+          </div>
+          <div fxFlex.gt-sm="30" fxLayout="column" (click)="openCoinDetail(nt)"
+            style="text-align: center;cursor: pointer;">
+            <div fxFlex><img [src]="nt.imageUrls[0]" class="byd-coin-image"></div>
+          </div>
+        </div>
+      </div>
+
+      <div fxLayout="row" *ngIf="(nt.notificationType=='sold')" style="border: 1px solid #e0e0e0; margin-bottom: 5px;">
+        <div fxFlex fxLayout.gt-sm="row" fxLayout.lt-md="column">
+          <div style="text-align: center;padding: 10px;" fxLayout="column">
+            <div fxFlex></div>
+            <img src="assets/img/auction.png" style="width:100px; height:100px;">
+            <div fxFlex></div>
+          </div>
+          <div fxFlex fxLayout="column" style="margin-left: 20px; margin-right: 20px;">
+            <div fxFlex></div>
+            <div class="byd-div-heigh25">
+              <span>Your item has successfully sold</span>
+              (<span class="byd-font12-italic">{{nt.notificationDate | dateFormat}}</span>)
+            </div>
+            <div class="byd-div-heigh25"><span>{{nt.name}}</span></div>
+            <div fxFlex></div>
+          </div>
+          <div fxFlex.gt-sm="30" fxLayout="column" (click)="openCoinDetail(nt)"
+            style="text-align: center;cursor: pointer;">
+            <div fxFlex><img [src]="nt.imageUrls[0]" class="byd-coin-image"></div>
+          </div>
+        </div>
+      </div>
+
+      <div fxLayout="row" *ngIf="(nt.notificationType=='notify')"
+        style="border: 1px solid #e0e0e0; margin-bottom: 5px;">
+        <div fxFlex fxLayout.gt-sm="row" fxLayout.lt-md="column">
+          <div style="text-align: center;padding: 10px;" fxLayout="column">
+            <div fxFlex></div>
+            <img src="assets/img/heart.png" style="width:90px; height:90px;">
+            <div fxFlex></div>
+          </div>
+          <div fxFlex fxLayout="column" style="margin-left: 20px; margin-right: 20px;">
+            <div fxFlex></div>
+            <div class="byd-div-heigh25">
+              <span>An item on your watch list has reached your target price</span>
+              (<span class="byd-font12-italic">{{nt.notificationDate | dateFormat}}</span>)
+            </div>
+            <div class="byd-div-heigh25"><span>{{nt.name}}</span></div>
+            <div fxFlex></div>
+          </div>
+          <div fxFlex.gt-sm="30" fxLayout="column" (click)="openCoinDetail(nt)"
+            style="text-align: center;cursor: pointer;">
+            <div fxFlex><img [src]="nt.imageUrls[0]" class="byd-coin-image"></div>
+          </div>
+        </div>
+      </div>
+
+      <div fxLayout="row" *ngIf="(nt.notificationType=='message')"
+        style="border: 1px solid #e0e0e0; margin-bottom: 5px;">
+        <div fxFlex fxLayout.gt-sm="row" fxLayout.lt-md="column">
+          <div style="text-align: center;padding: 10px;" fxLayout="column">
+            <div fxFlex></div>
+            <img src="assets/img/message.png" style="width:90px; height:90px;">
+            <div fxFlex></div>
+          </div>
+          <div fxFlex fxLayout="column" style="margin-left: 20px; margin-right: 20px;">
+            <div fxFlex></div>
+            <div class="byd-div-heigh25">
+              <span>You received a message from <b>{{nt.userName}}</b></span>
+              (<span class="byd-font12-italic">{{nt.notificationDate | dateFormat}}</span>)
+            </div>
+            <div class="byd-div-heigh25"><span><b>"{{nt.notificationContent}}"</b></span></div>
+            <div fxLayout="row">
+              <div fxFlex="50"></div>
+              <div fxFlex="50" style="padding-right: 20px;">
+                <button class="byd-function-button" (click)="openUserMessage(nt.userId, nt.coinId)">View
+                  history</button>
+              </div>
+            </div>
+            <div fxFlex></div>
+          </div>
+          <div fxFlex.gt-sm="30" fxLayout="column" (click)="openCoinDetail(nt)"
+            style="text-align: center; cursor: pointer;">
+            <div fxFlex><img [src]="nt.imageUrls[0]" class="byd-coin-image"></div>
+          </div>
+        </div>
+      </div>
+
+    </ng-container>
+
+    <div *ngIf="userNotifications.length==0" style="text-align: center; padding-top: 30px;">
+      <span>{{searchResultMessage}}</span>
+    </div>
+  </div>
+</div>

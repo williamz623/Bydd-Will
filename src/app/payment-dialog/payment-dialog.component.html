@@ -1,0 +1,89 @@
+<div style="height:100%" fxLayout="column">
+  <div style="height:30px; line-height:30px; background-color: #1a405d; color: white; font-size:18px; padding: 5px;">
+    <span>Payment</span>
+    <span class="material-icons" (click)="closeDialog()"
+      style="float: right;line-height: 30px; cursor: pointer;">close</span>
+  </div>
+
+  <form fxFlex style="padding: 5px; border-radius: 5px; border: 1px solid #e0e0e0; margin: 10px;">
+    <div class="byd-coin-field-div" style="margin: 0; font-weight: bold;">
+      <kendo-label class="k-form font-size-12" text="NAME ON CARD" [for]="cardNameElement"></kendo-label>
+      <div id="card-name-element">
+        <input #cardNameElement class="byd-card-name">
+      </div>
+    </div>
+
+    <div class="byd-coin-field-div" style="font-weight: bold;">
+      <kendo-label class="k-form font-size-12" text="CARD NUMBER" [for]="cardNumberElement"></kendo-label>
+      <div id="card-number-element" #cardNumberElement></div>
+      <img src="assets/img/cc.png" class="byd-cc-card">
+    </div>
+
+    <div fxlayout="row" style="width:100%; top: -20px; position: relative;">
+      <div fxFlex="50">
+        <div class="byd-coin-field-div" style="font-weight: bold;">
+          <label for="cardExpiry" class="font-size-12">EXPIRATION DATE</label>
+          <div id="card-expiry-element" #cardExpiryElement></div>
+        </div>
+      </div>
+      <div fxFlex="50" style="padding-left: 10px;">
+        <div class="byd-coin-field-div" style="font-weight: bold;">
+          <label for="cardCvc" class="font-size-12">SECURITY CODE</label>
+          <div id="card-cvc-element" #cardCvcElement></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="byd-coin-field-div" style="margin-top:-15px;background-color: #e0e0e0; text-align: right; border-radius: 5px;padding: 5px;">
+      <div style="margin-bottom: 5px;">
+        <span>Amount:&nbsp;&nbsp;</span>&nbsp;&nbsp;
+        <span #inputAmount style="font-size: 16px; width: 120px; display: inline-block;">{{paymentAmount | currency }}</span>
+      </div>
+      <div style="margin-bottom: 5px;">
+        <span>Credit Card Service Fee 3%:&nbsp;&nbsp;</span>&nbsp;&nbsp;
+        <span #inputAmount style="font-size: 16px; width: 120px; display: inline-block;">{{paymentServiceFee_CC | currency}}</span>
+      </div>
+      <div style="padding-top: 5px; border-top: 1px solid #d0d0d0;">
+        <span><b>Total:</b>&nbsp;&nbsp;</span>&nbsp;&nbsp;
+        <span #inputAmount style="font-size: 22px; width: 120px; display: inline-block;">{{paymentTotal_CC | currency }}</span>
+      </div>
+    </div>
+
+    <div style="padding-top: 5px;">
+      <button *ngIf="!paymentSucceed" id="btnPayNow" type="button" (click)="makePayment()"
+        class="byd-function-button">Pay by Credit Card</button>
+    </div>
+
+  </form>
+
+  <div style="text-align: center; font-size:24px">OR</div>
+
+  <div style="padding: 5px 5px 0 5px; border-radius: 5px; border: 1px solid #e0e0e0; margin: 10px;">
+    <div class="byd-coin-field-div" style="margin-top:0;background-color: #e0e0e0; text-align: right; border-radius: 5px;padding: 5px;">
+      <div style="margin-bottom: 5px;">
+        <span>Amount:&nbsp;&nbsp;</span>&nbsp;&nbsp;
+        <span #inputAmount style="font-size: 16px; width: 120px; display: inline-block;">{{paymentAmount | currency }}</span>
+      </div>
+      <div style="margin-bottom: 5px;">
+        <span>PayPal service Fee {{paymentServiceRate_PP*100}}%:&nbsp;&nbsp;</span>&nbsp;&nbsp;
+        <span #inputAmount style="font-size: 16px; width: 120px; display: inline-block;">{{paymentServiceFee_PP | currency}}</span>
+      </div>
+      <div style="padding-top: 5px; border-top: 1px solid #d0d0d0;">
+        <span><b>Total:</b>&nbsp;&nbsp;</span>&nbsp;&nbsp;
+        <span #inputAmount style="font-size: 22px; width: 120px; display: inline-block;">{{paymentTotal_PP | currency }}</span>
+      </div>
+    </div>
+    <div *ngIf="!paymentSucceed" style="padding-top: 5px;">
+        <ngx-paypal [config]="payPalConfig"></ngx-paypal>
+    </div>
+  </div>
+
+  <div style="text-align: center; padding: 10px;">
+    <span *ngIf="paymentSucceed" class="byd-span-succeed" (click)="closeDialog()">Payment Succeeded</span>
+    <span *ngIf="!paymentSucceed" id="spanMessage"></span>
+    <span *ngIf="!paymentSucceed" id="spanError" style="color:red"></span>
+  </div>
+  <div style="text-align: center;font-size: 9px; color: #cdcdcd;">
+    <span>The user payment logic was built on <b>Stripe</b> company security technique. </span>
+  </div>
+</div>

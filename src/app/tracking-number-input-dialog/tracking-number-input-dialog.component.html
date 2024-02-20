@@ -1,0 +1,36 @@
+<div fxLayout="column" class="byd-page-container" style="height:100%">
+    <div style="height:40px; background-color: #1a405d; color:white; text-align: center;">Input Tracking Number</div>
+
+    <div fxFlex fxLayout="column" style="padding: 10px;">
+        <div class="byd-coin-field-div">
+            <kendo-label class="k-form" text="Coin Title"></kendo-label><br>
+            <span>{{currentCoin.name}}</span>
+        </div>
+
+        <!-- <div class="byd-coin-field-div">
+            <kendo-label class="k-form" text="Description" [for]="Description"></kendo-label>
+            <kendo-textbox #Description [(ngModel)]="currentCoin.description"></kendo-textbox>
+        </div>
+
+        <div class="byd-coin-field-div">
+            <kendo-label class="k-form" text="Sold Price" [for]="SoldPrice"></kendo-label>
+            <kendo-textbox #SoldPrice [(ngModel)]="currentCoin.currentPrice"></kendo-textbox>
+        </div> -->
+
+        <div class="byd-coin-field-div" style="margin-top: 20px;">
+            <kendo-label class="k-form" text="Carrier" [for]="Carrier"></kendo-label><span style="color:red">*</span>
+            <kendo-dropdownlist #Carrier [data]="carriers" [(value)]="coinShipping.carrierName"></kendo-dropdownlist>
+            
+        </div>
+
+        <div class="byd-coin-field-div" style="margin-top: 20px;">
+            <kendo-label class="k-form" text="Tracking Number" [for]="TrackingNumber"></kendo-label><span style="color:red">*</span>
+            <kendo-textbox #TrackingNumber [(ngModel)]="coinShipping.trackingNumber"></kendo-textbox>
+        </div>
+    </div>
+
+    <div class="byd-coin-field-div" style="margin-top: 20px; text-align: center;">
+        <button mat-button (click)="close()" class="btnClose byd-function-button">Cancel</button>&nbsp;&nbsp;&nbsp;
+        <button kendoButton (click)="submit()" class="btnClose byd-function-button">Submit</button>
+    </div>
+</div>

@@ -1,0 +1,234 @@
+@import "@angular/material/prebuilt-themes/indigo-pink.css";
+
+.material-icons { color:black; }
+#divMainMenu button {
+    // line-height: 50px;
+    color:white;
+    border:0;
+    background-color: transparent;
+}
+.header-container
+{
+  background-color: white;
+}
+
+.byd-header-link-list
+{
+  display: flex;
+  flex-direction: row;
+}
+
+
+
+
+    .byd-logo {
+    width: 166px;
+    height: 75px;
+    position: relative;
+    top: 0px;
+    left: -128px;
+    cursor: pointer;
+}
+
+.byd-menu-div {
+    line-height:50px;
+    margin-left:20px;
+    cursor: pointer;
+}
+
+
+.header-two {
+  background-color: white;
+  width:100%;
+  padding-left:10px;
+  padding-right:0px;
+  height:50px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: space-between;
+}
+
+.searchInput{
+  min-width: 44px;
+    height: 29px;
+    border-radius: 5px;
+    border: 2px solid #606060;
+    width: 100%;
+    max-width: 100%;
+}
+
+.SearchButton {
+    width:100px;
+}
+
+
+.menuButton{
+    background-color: transparent;
+    border: 0;
+    color: white;
+}
+
+.material-icons{
+    vertical-align: middle;
+}
+
+.byd-signin-span {
+    cursor: pointer;
+    color: #1a405d;
+    font-weight: bolder;
+}
+
+
+::ng-deep #divNotifications .mat-badge-content{
+    font-size: 10px;
+    height: 15px;
+    width: 15px;
+    line-height: 15px;
+    top: 8px;
+    left: 12px;
+}
+
+::ng-deep #divShoppingCart .mat-badge-content{
+    font-size: 10px;
+    height: 15px;
+    width: 15px;
+    line-height: 15px;
+    top: 8px;
+    left: 12px;
+}
+
+.shoppingCart {
+    display: flex;
+    flex-direction: row-reverse;
+    margin-left:10px;
+}
+
+.byd-dropdownlist {
+    border-color: #606060;
+    border-width: 2px;
+    height: 35px;
+    border-radius: 5px;
+    width: 107px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.disabled-btn { opacity: 0.5; cursor: not-allowed !important; }
+
+@media only screen and (max-width: 600px) {
+    ::ng-deep .cdk-overlay-pane { margin-left: 0; }
+    .byd-lt-md-hide { display:none !important; }
+    .byd-lt-md-show { display:inline; }
+    .byd-search-button {
+        color:white; height:35px; cursor: pointer;
+        border:0; border-radius: 5px; background-color: #1a405d !important;
+        margin-left: 5px; width:80px; }
+}
+
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+    ::ng-deep .cdk-overlay-pane { margin-left: 30px; }
+    .byd-lt-md-hide { display:inline; }
+    .byd-lt-md-show { display:none !important; }
+    .byd-search-button { color:white; height:35px; cursor: pointer;
+        border:0; border-radius: 5px; background-color: #1a405d !important; margin-left: 5px; width:120px; }
+}
+
+@media only screen and (min-width: 1025px) {
+    ::ng-deep .cdk-overlay-pane { margin-left: 0px; }
+    .byd-lt-md-hide {
+      display:inline;
+      width: 50px;
+    }
+    .byd-lt-md-show { display:none !important; }
+    .byd-search-button { color:white; height:35px;  cursor: pointer;
+        border:0; border-radius: 5px; background-color: #1a405d !important; margin-left: 5px; width:120px; }
+}
+
+.byd-navagator { margin: 20px; font-size: 16px; }
+
+.byd-navagator-span { margin-top: 20px; color:#c0c0c0; cursor: pointer; }
+
+.byd-contact-icon { width:24px; height:24px; margin-right:10px; }
+
+
+
+/* Targeting the mat-form-field within the search-container class */
+.search-container .mat-form-field {
+  background-color: white; /* Set background color to white */
+
+  /* Ensure the label and input text are visible against the white background */
+  .mat-form-field-label,
+  .mat-input-element {
+    color: black; /* Or any color that suits your design */
+  }
+
+  /* Optional: Adjust the appearance of the form field underline and outline */
+  .mat-form-field-underline .mat-form-field-ripple {
+    background-color: pink; /* Color for the underline ripple effect */
+  }
+
+  .mat-form-field-appearance-outline .mat-form-field-outline {
+    color: pink; /* Color for the outline */
+  }
+
+  .mat-form-field-appearance-outline .mat-form-field-outline-thick {
+    color: pink; /* Color for the focused outline */
+  }
+}
+
+app-header .search-container .mat-form-field,
+app-header .search-container .mat-form-field.mat-focused {
+  background-color: white !important; /* Using !important to ensure override */
+}
+
+/* Ensure input text is visible */
+app-header .search-container .mat-input-element {
+  color: white; /* Adjust if needed */
+}
+
+.mat-mdc-form-field-type-mat-select {
+  position: relative;
+  top: 8px;
+  color: white
+}
+
+.search-input
+{
+  width: 400px;
+}
+
+.search-icon
+{
+  background-color: white;
+  height: 0px;
+}
+
+
+/* Directly target the mat-form-field within the search-container */
+app-header .search-container mat-form-field {
+    background-color: white !important; /* Ensure the background is white */
+}
+
+/* Ensure the text inside the input is visible, e.g., black or another dark color for contrast */
+app-header .search-container .mat-input-element {
+    color: black; /* Adjust for visibility against white background */
+}
+
+/* Adjust the width of the search input field */
+app-header .search-container .search-input {
+    width: 300px; /* Or your desired width */
+}
+
+/* If you are using Material Design components, ensure correct targeting */
+app-header .search-container .mat-mdc-form-field-type-mat-select,
+app-header .search-container .mat-mdc-form-field-has-icon-prefix {
+    background-color: white !important; /* Background color */
+}
+
+/* Adjust the position if necessary - though this might need more context to be accurate */
+app-header .search-container .mat-mdc-form-field-type-mat-select {
+    position: relative;
+    top: 8px; /* Adjust based on your layout */
+    color: black; /* Make sure the text here is visible */
+}

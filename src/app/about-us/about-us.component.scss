@@ -1,0 +1,33 @@
+.byd-page-container { height:100%; padding: 20px; }
+
+
+
+@media only screen and (max-width: 600px) { 
+    .byd-lt-md-hide { display:none !important; }
+    .byd-lt-md-show { display:inline; }
+    .byd-aboutus-image { height:150px }
+    .byd-aboutus-paddingtop { padding-top: 20px;}
+    .byd-aboutus-photo { width:350px; height:200px; }
+    .byd-aboutus-story { line-height:1.8em; font-size:16px; font-family:Verdana, Geneva, Tahoma, sans-serif; padding: 20px 5px; }
+    .byd-aboutus-title { text-align: left;}
+}
+    
+@media only screen and (min-width: 601px) and (max-width: 1024px) {  
+    .byd-lt-md-hide { display:inline; }
+    .byd-lt-md-show { display:none !important;; }  
+    .byd-aboutus-image { height:300px }
+    .byd-aboutus-paddingtop { padding-top: 5px;}
+    .byd-aboutus-photo { width:708px; height:400px; }
+    .byd-aboutus-story { line-height:1.8em; font-size:16px; font-family:Verdana, Geneva, Tahoma, sans-serif; padding: 20px 80px; }
+    .byd-aboutus-title { text-align: center;}
+}
+  
+@media only screen and (min-width: 1025px) {    
+    .byd-lt-md-hide { display:inline; }
+    .byd-lt-md-show { display:none !important;; }
+    .byd-aboutus-image { height:300px }
+    .byd-aboutus-paddingtop { padding-top: 5px;}
+    .byd-aboutus-photo { width:708px; height:400px; }
+    .byd-aboutus-story { line-height:1.8em; font-size:16px; font-family:Verdana, Geneva, Tahoma, sans-serif; padding: 20px 80px; }
+    .byd-aboutus-title { text-align: center;}
+}

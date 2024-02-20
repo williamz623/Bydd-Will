@@ -1,0 +1,119 @@
+.material-icons { color:black; }
+#divMainMenu button {
+    // line-height: 50px;
+    color:white;
+    border:0;
+    background-color: transparent;
+}
+
+
+.byd-logo { width: 238px;
+    height: 101px;
+    position: relative;
+    top: -46px;
+    left: -43px;
+    cursor: pointer; }
+
+.byd-menu-div {
+    line-height:50px;
+    margin-left:20px;
+    cursor: pointer;
+}
+
+.searchInput{
+  min-width: 44px;
+    height: 29px;
+    border-radius: 5px;
+    border: 2px solid #606060;
+    width: 100%;
+    max-width: 100%;
+}
+
+.SearchButton {
+    width:100px;
+}
+
+
+.menuButton{
+    background-color: transparent;
+    border: 0;
+    color: white;
+}
+
+.material-icons{
+    vertical-align: middle;
+}
+
+.byd-signin-span {
+    cursor: pointer;
+    color: #1a405d;
+    font-weight: bolder;
+}
+
+
+::ng-deep #divNotifications .mat-badge-content{
+    font-size: 10px;
+    height: 15px;
+    width: 15px;
+    line-height: 15px;
+    top: 8px;
+    left: 12px;
+}
+
+::ng-deep #divShoppingCart .mat-badge-content{
+    font-size: 10px;
+    height: 15px;
+    width: 15px;
+    line-height: 15px;
+    top: 8px;
+    left: 12px;
+}
+
+.shoppingCart {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.byd-dropdownlist {
+    border-color: #606060;
+    border-width: 2px;
+    height: 35px;
+    border-radius: 5px;
+    width: 107px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.disabled-btn { opacity: 0.5; cursor: not-allowed !important; }
+
+@media only screen and (max-width: 600px) {
+    ::ng-deep .cdk-overlay-pane { margin-left: 0; }
+    .byd-lt-md-hide { display:none !important; }
+    .byd-lt-md-show { display:inline; }
+    .byd-search-button {
+        color:white; height:35px; cursor: pointer;
+        border:0; border-radius: 5px; background-color: #1a405d !important;
+        margin-left: 5px; width:80px; }
+}
+
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+    ::ng-deep .cdk-overlay-pane { margin-left: 30px; }
+    .byd-lt-md-hide { display:inline; }
+    .byd-lt-md-show { display:none !important; }
+    .byd-search-button { color:white; height:35px; cursor: pointer;
+        border:0; border-radius: 5px; background-color: #1a405d !important; margin-left: 5px; width:120px; }
+}
+
+@media only screen and (min-width: 1025px) {
+    ::ng-deep .cdk-overlay-pane { margin-left: 30px; }
+    .byd-lt-md-hide { display:inline; }
+    .byd-lt-md-show { display:none !important; }
+    .byd-search-button { color:white; height:35px;  cursor: pointer;
+        border:0; border-radius: 5px; background-color: #1a405d !important; margin-left: 5px; width:120px; }
+}
+
+.byd-navagator { margin: 20px; font-size: 16px; }
+
+.byd-navagator-span { margin-top: 20px; color:#c0c0c0; cursor: pointer; }
+
+.byd-contact-icon { width:24px; height:24px; margin-right:10px; }

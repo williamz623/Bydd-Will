@@ -1,0 +1,36 @@
+@media only screen and (max-width: 600px) { 
+    .byd-page-container { height:100%; padding: 1px; } 
+}
+    
+@media only screen and (min-width: 601px) and (max-width: 1024px) {    
+    .byd-page-container { height:100%; padding: 20px; } 
+}
+  
+@media only screen and (min-width: 1025px) {    
+    .byd-page-container { height:100%; padding: 20px; } 
+}
+
+.byd-function-button {
+    width:200px;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px;
+    color:white;
+    background-color: #1a405d;
+}
+
+.byd-help-function {
+    text-align: center; 
+    background-color: #e0e0e0;
+    margin-top: 10px;
+    padding: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.left-align-label { text-align: left !important; }
+
+.disabled-btn { opacity: 0.5; cursor: not-allowed !important; }
+
+.byd-margin-top-20 { margin-top: 20px; }
+.byd-margin-bottom-20 { margin-bottom: 20px;}

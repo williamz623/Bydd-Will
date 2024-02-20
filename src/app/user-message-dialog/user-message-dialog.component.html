@@ -1,0 +1,43 @@
+<div style="height:100%" fxLayout="column">
+    <div style="height:40px; border-bottom:1px solid #a0a0a0;text-align: center;">
+        <span style="line-height:40px; font-size:20px">User Message</span>
+        <span class="material-icons" (click)="closeDialog()"
+            style="float: right;line-height: 40px;margin-right: 10px;cursor: pointer;">close</span>
+    </div>
+
+    <div fxFlex mat-dialog-content fxLayout="row" style="padding: 10px;">
+        <div fxFlex="15"></div>
+        <div id="divMessageContent" fxFlex="70" style="overflow-y: auto; display: flex; flex-direction: column;">
+            <ng-container *ngFor="let um of userMessages">
+                <div class="byd-message" [ngClass]="{'byd-float-right': (um.messageIndicator=='R' && um.userId != userId) || (um.messageIndicator=='S' && um.userId == userId)}">
+                    <p>{{um.message}}</p>
+                </div>
+                <div *ngIf="um.messageIndicator=='S'" class="byd-message-owner" [ngClass]="{'byd-float-right-only': um.userId == userId}">
+                    {{um.userDisplayName}}({{um.enterDate | dateFormat}})
+                </div>
+                <div *ngIf="um.messageIndicator=='R'" class="byd-message-owner" [ngClass]="{'byd-float-right-only': um.userId != userId}">
+                    {{um.sellerDisplayName}}({{um.enterDate | dateFormat}})
+                </div>
+            </ng-container>
+        </div>
+        <div fxFlex></div>
+    </div>
+
+    <div mat-dialog-actions class="byd-div-close" style="text-align: center;display:block">
+        <div fxFlex="15"></div>
+        <div fxFlex="70" class="byd-message" style="border: 0;">
+            <kendo-textarea [(ngModel)]="messageToSeller" [rows]="2" resizable="vertical"
+                name="inputMessage"></kendo-textarea>
+            <button mat-button [disabled]="btnSendMessageDisabled || messageToSeller.trim().length==0"
+                [ngClass]="{'disabled-btn': btnSendMessageDisabled || messageToSeller.trim().length==0}"
+                (click)="sendMessage()" class="byd-function-button1" title="Send message">
+                <img src="assets/img/sendMessage.png" alt="Image Button" height="25">
+            </button>
+        </div>
+        <!-- <div fxFlex style="margin-top:10px">
+            <div>
+
+            </div>
+        </div> -->
+    </div>
+</div>

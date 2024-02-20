@@ -1,0 +1,80 @@
+<div fxLayout="row" class="byd-page-container">
+  <div fxLayout="column">
+    <div style="border-bottom: 1px solid #e0e0e0; text-align: left;"><span>Sort by Price</span></div>
+    <div class="byd-sort-option"><input (change)="onSort(1)" type="radio" name="sortby"
+        style="position: relative; top: 2px;">Low to high</div>
+    <div class="byd-sort-option"><input (change)="onSort(2)" type="radio" name="sortby"
+        style="position: relative; top: 2px;">High to low</div>
+
+    <div style="border-bottom: 1px solid #e0e0e0; text-align: left; margin-top: 20px;"><span>Sort by Increment</span>
+    </div>
+    <div class="byd-sort-option"><input (change)="onSort(3)" type="radio" name="sortby"
+        style="position: relative; top: 2px;">Smallest to largest</div>
+    <div class="byd-sort-option"><input (change)="onSort(4)" type="radio" name="sortby"
+        style="position: relative; top: 2px;">Largest to smallest</div>
+
+    <div style="border-bottom: 1px solid #e0e0e0; text-align: left; margin-top: 20px;"><span>Sort by date added</span>
+    </div>
+    <div class="byd-sort-option"><input (change)="onSort(5)" type="radio" name="sortby"
+        style="position: relative; top: 2px;">Newest to oldest</div>
+    <div class="byd-sort-option"><input (change)="onSort(6)" type="radio" name="sortby" checked
+        style="position: relative; top: 2px;">Oldest to newest</div>
+
+  </div>
+  <div fxFlex fxLayout="column" style="margin-left: 10px;">
+    <div style="border-bottom: 1px solid #e0e0e0; text-align: left;"><span><b>My Watchlist</b></span></div>
+
+    <div fxFlex fxLayout="row" class="byd-coin-field-div">
+      <div fxFlex fxLayout="column">
+        <div id="divSpin" style="text-align: center;"><img src="assets/img/Spin-1s-200px.gif" class="byd-spin">
+        </div>
+
+        <div *ngIf="coins && coins.length==0" style="text-align: center;padding-top: 20px; font-size: 18px;">
+          No coin in your watchlist.
+        </div>
+
+        <ng-container *ngFor="let coin of coins">
+          <div fxLayout.gt-sm="row" fxLayout.lt-md="column" class="byd-watlist-coin">
+            <div (click)="openCoinDetail(coin)" class="byd-watchlist-image">
+              <img [src]="coin.currentCoinImage" class="byd-coin-image">
+            </div>
+            <div fxLayout.gt-sm="column" fxLayout.lt-md="row">
+              <div fxFlex></div>
+              <div (click)="showImage(0, coin)" class="byd-padding-3"><img [src]="coin.imageUrls[0]"
+                  class="byd-coin-preview-image"></div>
+              <div (click)="showImage(1, coin)" class="byd-padding-3"><img [src]="coin.imageUrls[1]"
+                  class="byd-coin-preview-image"></div>
+              <div (click)="showImage(2, coin)" class="byd-padding-3"><img [src]="coin.imageUrls[2]"
+                  class="byd-coin-preview-image"></div>
+              <div *ngIf="coin.imageUrls[3] != null && coin.imageUrls[3].length>0" (click)="showImage(3, coin)"
+                class="byd-padding-3"><img [src]="coin.imageUrls[3]" class="byd-coin-preview-image"></div>
+              <div *ngIf="coin.imageUrls[4] != null && coin.imageUrls[4].length>0" (click)="showImage(4, coin)"
+                class="byd-padding-3"><img [src]="coin.imageUrls[4]" class="byd-coin-preview-image"></div>
+              <div *ngIf="coin.imageUrls[5] != null && coin.imageUrls[5].length>0" (click)="showImage(5, coin)"
+                class="byd-padding-3"><img [src]="coin.imageUrls[5]" class="byd-coin-preview-image"></div>
+              <div fxFlex></div>
+            </div>
+            <div fxFlex fxLayout="column" style="margin-left: 20px">
+              <div><span><b>{{coin.name}}</b></span></div>
+              <div><span>Current Price: </span><span><b>{{coin.currentPrice | currency}}</b></span></div>
+              <div><span>Start Price: </span><span><b>{{coin.startPrice | currency}}</b></span></div>
+              <div><span>Time Between Drops: </span><span><b>{{coin.intervalString}}</b></span></div>
+              <div style="font-style: italic;"><span>Time Until Next Drop:</span>&nbsp;<span
+                  style="color:red">{{coin.leftTime}}</span></div>
+              <div style="font-style: italic;"><span>Drop Increment: </span><span style="color:crimson"><b>{{
+                    coin.increment | currency:'USD':true }}
+                  </b></span></div>
+            </div>
+
+            <div style="text-align: right; padding: 10px 10px 0 0;">
+              <span (click)="removeCoinFromWatchlist(coin.coinId)" class="material-icons"
+                style="cursor: pointer; color:red">favorite</span>
+            </div>
+
+          </div>
+        </ng-container>
+
+      </div>
+    </div>
+  </div>
+</div>

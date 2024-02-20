@@ -1,0 +1,67 @@
+
+.byd-coin-field-div { margin-top:10px; overflow-y: auto; }
+
+.byd-coin-image {
+    max-width:250px; max-height:150px; border: 1px solid #f0f0f0;border-radius: 5px;padding: 5px
+}
+
+.byd-coin-preview-image {
+    max-width: 25px;
+}
+
+.byd-spin{
+    border-radius: 10px;
+    height: 100px;
+    width: 100px;
+}
+
+.byd-div-coin-list {
+    border:1px solid #e0e0e0;
+    margin-bottom: 10px;
+    padding-top: 10px;
+}
+.byd-div-coin-list:hover { background-color: #f5f5f5; }
+
+
+.byd-function-button {
+    float: right;width: 100%; height: 30px; border-radius: 5px; border:0; background-color: #1a405d; color: white; cursor: pointer;
+}
+
+.byd-coin-edit-icon {
+    float: right; 
+    position: relative; 
+    top: -5px; 
+    border-radius: 5px; 
+    background-color: #1a405d;
+    color:white;
+    cursor: pointer;
+}
+
+.byd-list-all-div {
+    padding: 3px;
+}
+
+.byd-sort-kendo {
+    height: 20px;
+    border: 0;
+    width: 230px;
+}
+.byd-filter-kendo {
+    height: 20px;
+    border: 0;
+    width: 150px;
+}
+
+.byd-sort-option { height: 30px; line-height: 30px; cursor:pointer; }
+
+@media only screen and (max-width: 600px) { 
+    .byd-page-container { height:100%; padding: 1px; } 
+}
+    
+@media only screen and (min-width: 601px) and (max-width: 1024px) {    
+    .byd-page-container { height:100%; padding: 20px; } 
+}
+  
+@media only screen and (min-width: 1025px) {    
+    .byd-page-container { height:100%; padding: 20px; } 
+}

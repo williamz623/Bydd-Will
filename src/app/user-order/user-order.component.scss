@@ -1,0 +1,76 @@
+.byd-coin-field-div {
+    margin-top:10px;
+    // overflow-y: auto;
+}
+
+.byd-coin-image {
+    max-width:250px; border: 1px solid #f0f0f0;border-radius: 5px;padding: 5px
+}
+
+.byd-spin{
+    border-radius: 10px;
+    height: 100px;
+    width: 100px;
+}
+
+.byd-div-heigh25{
+    height:25px;
+    line-height: 25px;
+}
+.byd-div-heigh50{ height:50px; line-height: 50px; }
+
+.byd-function-button {
+    float: right;width: 100%; height: 30px; border-radius: 5px; border:0; background-color: #1a405d; color: white; cursor: pointer;
+}
+
+
+::ng-deep #divCoinInOrder .mat-mdc-checkbox.mat-accent .mdc-checkbox--selected~.mdc-checkbox__ripple {
+    background: #1a405d;
+}
+
+.byd-coin-edit-icon {
+    position: relative; 
+    border-radius: 5px; 
+    background-color: #1a405d;
+    color:white;
+    cursor: pointer;
+    width: 24px;
+}
+
+.byd-padding-3 { padding: 3px; text-align: center;}
+
+@media only screen and (max-width: 600px) { 
+    .byd-page-container { height:100%; padding: 1px; } 
+    .byd-coin-preview-image { max-height: 50px; }
+}
+    
+@media only screen and (min-width: 601px) and (max-width: 1024px) {    
+    .byd-page-container { height:100%; padding: 30px; } 
+    .byd-coin-preview-image { max-height: 30px; }
+}
+  
+@media only screen and (min-width: 1025px) {    
+    .byd-page-container { height:100%; padding: 30px; } 
+    .byd-coin-preview-image { max-height: 30px; }
+}
+
+.byd-order-item {
+    margin-bottom: 10px; 
+    border: 1px solid #e0e0e0; 
+    border-radius: 5px; 
+    padding: 5px;
+}
+
+.mat-mdc-checkbox.mat-accent {
+--mdc-checkbox-selected-focus-icon-color: #1a405d;
+--mdc-checkbox-selected-hover-icon-color: #1a405d;
+--mdc-checkbox-selected-icon-color: #1a405d;
+--mdc-checkbox-selected-pressed-icon-color: #1a405d;
+
+--mdc-checkbox-unselected-focus-icon-color: #1a405d;
+--mdc-checkbox-unselected-hover-icon-color: #1a405d;
+--mdc-checkbox-disabled-selected-icon-color: #1a405d;
+--mdc-checkbox-disabled-unselected-icon-color:#1a405d;
+--mdc-checkbox-unselected-icon-color: #1a405d;
+--mdc-checkbox-unselected-pressed-icon-color:#1a405d;
+}

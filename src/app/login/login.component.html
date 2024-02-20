@@ -1,0 +1,79 @@
+<div fxLayout="row" class="byd-page-container">
+    <div fxFlex></div>
+    <div fxFlex.gt-sm="50" fxFlex.lt-md="100" fxLayout="column">
+        <div class='byd-signin-title'>
+            <span>Welcome back to Bydd</span>
+        </div>
+        <form id="formLogin" fxLayout="column" class="example-form" [formGroup]="formGroup">
+            <div class="byd-login-margin">
+                <mat-form-field id="mfEmail" class="example-full-width" style="width:100%">
+                    <!-- <mat-label>Sign In Email</mat-label> -->
+                    <input type="email" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher"
+                        placeholder="Email address">
+                    <mat-error *ngIf="emailFormControl.hasError('required')">Email is
+                        <strong>required</strong></mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="byd-login-margin">
+                <mat-form-field id="mfPwd" class="example-full-width" style="width:100%">
+                    <!-- <mat-label>Password</mat-label> -->
+                    <input type="password" matInput [formControl]="passwordControl" placeholder="Password"
+                    (keyup.enter)="signIn()" [errorStateMatcher]="matcher" />
+                    <mat-error *ngIf="passwordControl.hasError('required')">
+                        Password is required.
+                    </mat-error>
+                </mat-form-field>
+            </div>
+        </form>
+
+        <div id="divRememberMe" class="byd-login-margin" fxLayout="row">
+            <div fxFlex="50" style="position: relative; top: -10px; left: -10px;">
+                <div>
+                    <mat-checkbox [(ngModel)]="isRememberMe" name="rememberme" [disabled]="!formGroup.valid" class="example-margin">
+                        Remember me
+                    </mat-checkbox>
+                </div>
+            </div>
+            <div fxFlex="50">
+                <div id="divForgetPasswordLink" style="text-align: right;">
+                    <a><span (click)="forgotPassword()" style="text-decoration-line: underline; cursor: pointer;">
+                            Forgot password?
+                        </span></a>
+                </div>
+            </div>
+        </div>
+
+        <div id="divSignIn" class="byd-login-margin" style="text-align: center;" fxLayout="row">
+            <div fxFlex></div>
+            <div fxFlex="60">
+                <button kendoButton class="byd-button" (click)="signIn()" [disabled]="!formGroup.valid || btnSignInDisabled">{{btnSignInTitle}}</button>
+                <div style="text-align: center;font-size: 13px;">
+                    <span>New to Bydd?</span>
+                    <a><span (click)="createAccount()" style="color:#1a405d; cursor: pointer;">
+                        Create an account
+                    </span></a>
+                </div>
+            </div>
+            <div fxFlex></div>
+        </div>
+
+
+        <div id="divForgetPasswordForm" style="display:none">
+            <div class="byd-login-margin">
+                <kendo-label class="k-form" text="Please input your email" [for]="input"></kendo-label>
+                <kendo-textbox #input [(ngModel)]="userEmail" required="true" style="margin-top: 5px;"></kendo-textbox>
+            </div>
+
+            <div class="byd-login-margin" style="text-align: center;">
+                <button kendoButton class="byd-button" (click)="sendForgetPasswordEmail()" 
+                    [disabled]="userEmail.trim().length==0" [ngClass]="{'disabled-btn': userEmail.trim().length==0 || btnForgetPwdDisabled}">
+                    {{btnForgetPwdTitle}}
+                </button>
+            </div>
+        </div>
+
+
+    </div>
+    <div fxFlex></div>
+</div>
